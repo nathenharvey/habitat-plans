@@ -9,7 +9,15 @@ pkg_shasum=fa3e30bb4ff20702bba9865029986cf8cdfbcc4b92b76da9ec8f23f227a4ddcc
 pkg_upstream_url=https://github.com/billmeyer/national-parks
 pkg_deps=(core/tomcat8 core/jdk8 nathenharvey/mongodb core/mongo-tools)
 pkg_build_deps=(core/git core/maven)
-pkg_expose=(8080)
+pkg_exports=(
+  [port]=port
+)
+pkg_exposes=(port)
+
+pkg_binds=(
+ [database]="port address"
+)
+
 pkg_svc_user="root"
 pkg_svc_group="root"
 
